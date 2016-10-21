@@ -20752,9 +20752,10 @@ var SlideShowApp = exports.SlideShowApp = function (_Component) {
 	}, {
 		key: 'render',
 		value: function render() {
-			return _react2.default.createElement("div", null, _react2.default.createElement(_SlideShowButton.SlideShowButton, null), _react2.default.createElement("textarea", {
-				rows: "30",
-				onChange: this._handleChange }), _react2.default.createElement(_LivePreview.LivePreview, { text: this.state.text }));
+			return _react2.default.createElement("div", { className: "row" }, _react2.default.createElement("div", { className: "col-md-6" }, _react2.default.createElement(_SlideShowButton.SlideShowButton, { className: "btn btn-primary" }), _react2.default.createElement("textarea", {
+				className: "form-control",
+				rows: "25",
+				onChange: this._handleChange })), _react2.default.createElement("div", { className: "col-md-6" }, _react2.default.createElement(_LivePreview.LivePreview, { text: this.state.text })));
 		}
 	}]);
 
@@ -20812,7 +20813,9 @@ var SlideShowButton = exports.SlideShowButton = function (_Component) {
 	}, {
 		key: "render",
 		value: function render() {
-			return _react2.default.createElement("button", { onClick: this._handleClick }, "播放");
+			return _react2.default.createElement("button", {
+				className: this.props.className,
+				onClick: this._handleClick }, "播放");
 		}
 	}]);
 
