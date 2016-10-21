@@ -5,26 +5,38 @@ export class LivePreview extends Component {
 		super(props, context);
 
 		this.state = {
+			html: ''
 		};
+
+		this.converter = new showdown.Converter();
 	}
 	componentWillUnmount() {
 	}
-	componentDodMount() {
+	componentDidMount() {
 	}
 
-	_handleClick(e) {
-		this.setState({
-		})
+	componentDidUpdate(prevProps, prevState) {
+		document.getElementById("livePreview").innerHTML = this.state.html;
 	}
+
+	componentWillReceiveProps(props) {
+		console.log(this.props.text)
+		var html = this.converter.makeHtml(props.text);
+
+		this.setState({
+			html: html
+		});
+	}
+
 
 	render() {
 		return (
-			<div>
-				{this.props.text}
+			<div id="livePreview">
 			</div>
 		);
 	}
 }
 
 LivePreview.defaultprops = {
+	text: ''
 }
