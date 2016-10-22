@@ -48,6 +48,5 @@ SlideShowButton.defaultprops = {
 }
 
 SlideShowButton.propTypes = {
-	canPlay: React.PropTypes.bool,
-	text: React.PropTypes.string
+
 }

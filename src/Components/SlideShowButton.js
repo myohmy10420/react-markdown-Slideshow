@@ -78,7 +78,4 @@ SlideShowButton.defaultprops = {
 	text: ''
 };
 
-SlideShowButton.propTypes = {
-	canPlay: _react2.default.PropTypes.bool,
-	text: _react2.default.PropTypes.string
-};
+SlideShowButton.propTypes = {};

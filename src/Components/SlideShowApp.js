@@ -58,7 +58,7 @@ var SlideShowApp = exports.SlideShowApp = function (_Component) {
 		key: 'render',
 		value: function render() {
 			return _react2.default.createElement("div", { className: "row" }, _react2.default.createElement("div", { className: "col-md-6" }, _react2.default.createElement(_SlideShowButton.SlideShowButton, {
-
+				text: this.state.text,
 				canPlay: this.state.canPlay,
 				className: "btn btn-primary" }), _react2.default.createElement("textarea", {
 				className: "form-control",
