@@ -30,7 +30,7 @@ export class SlideShowApp extends Component {
 			<div className="row">
 				<div className="col-md-6">
 					<SlideShowButton
-					text={this.state.text}
+					
 					canPlay={this.state.canPlay}
 					className="btn btn-primary" />
 					<textarea

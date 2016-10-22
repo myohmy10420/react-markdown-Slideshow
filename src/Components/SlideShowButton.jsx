@@ -43,4 +43,11 @@ export class SlideShowButton extends Component {
 }
 
 SlideShowButton.defaultprops = {
+	canPlay: true,
+	text: ''
+}
+
+SlideShowButton.propTypes = {
+	canPlay: React.PropTypes.bool,
+	text: React.PropTypes.string
 }

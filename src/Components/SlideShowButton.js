@@ -73,4 +73,12 @@ var SlideShowButton = exports.SlideShowButton = function (_Component) {
 	return SlideShowButton;
 }(_react.Component);
 
-SlideShowButton.defaultprops = {};
+SlideShowButton.defaultprops = {
+	canPlay: true,
+	text: ''
+};
+
+SlideShowButton.propTypes = {
+	canPlay: _react2.default.PropTypes.bool,
+	text: _react2.default.PropTypes.string
+};
