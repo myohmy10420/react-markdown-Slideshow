@@ -1,7 +1,7 @@
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+	value: true
 });
 exports.SlideShowApp = undefined;
 
@@ -24,47 +24,50 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var SlideShowApp = exports.SlideShowApp = function (_Component) {
-  _inherits(SlideShowApp, _Component);
+	_inherits(SlideShowApp, _Component);
 
-  function SlideShowApp(props, context) {
-    _classCallCheck(this, SlideShowApp);
+	function SlideShowApp(props, context) {
+		_classCallCheck(this, SlideShowApp);
 
-    var _this = _possibleConstructorReturn(this, (SlideShowApp.__proto__ || Object.getPrototypeOf(SlideShowApp)).call(this, props, context));
+		var _this = _possibleConstructorReturn(this, (SlideShowApp.__proto__ || Object.getPrototypeOf(SlideShowApp)).call(this, props, context));
 
-    _this.state = {
-      text: ''
-    };
+		_this.state = {
+			text: '',
+			canPlay: false
+		};
 
-    _this._handleChange = _this._handleChange.bind(_this);
-    return _this;
-  }
+		_this._handleChange = _this._handleChange.bind(_this);
+		return _this;
+	}
 
-  _createClass(SlideShowApp, [{
-    key: 'componentWillUnmount',
-    value: function componentWillUnmount() {}
-  }, {
-    key: 'componentDidMount',
-    value: function componentDidMount() {}
-  }, {
-    key: '_handleChange',
-    value: function _handleChange(e) {
-      this.setState({
-        text: e.target.value
-      });
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement("div", { className: "row" }, _react2.default.createElement("div", { className: "col-md-6" }, _react2.default.createElement(_SlideShowButton.SlideShowButton, {
-        text: this.state.text,
-        className: "btn btn-primary" }), _react2.default.createElement("textarea", {
-        rows: "25",
-        className: "form-control",
-        onChange: this._handleChange })), _react2.default.createElement("div", { className: "col-md-6" }, _react2.default.createElement(_LivePreview.LivePreview, { text: this.state.text })));
-    }
-  }]);
+	_createClass(SlideShowApp, [{
+		key: 'componentWillUnmount',
+		value: function componentWillUnmount() {}
+	}, {
+		key: 'componentDidMount',
+		value: function componentDidMount() {}
+	}, {
+		key: '_handleChange',
+		value: function _handleChange(e) {
+			this.setState({
+				text: e.target.value,
+				canPlay: e.target.value != ''
+			});
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			return _react2.default.createElement("div", { className: "row" }, _react2.default.createElement("div", { className: "col-md-6" }, _react2.default.createElement(_SlideShowButton.SlideShowButton, {
+				text: this.state.text,
+				canPlay: this.state.canPlay,
+				className: "btn btn-primary" }), _react2.default.createElement("textarea", {
+				className: "form-control",
+				rows: "25",
+				onChange: this._handleChange })), _react2.default.createElement("div", { className: "col-md-6" }, _react2.default.createElement(_LivePreview.LivePreview, { text: this.state.text })));
+		}
+	}]);
 
-  return SlideShowApp;
+	return SlideShowApp;
 }(_react.Component);
 
-SlideShowApp.defaultProps = {};
+SlideShowApp.defaultprops = {};

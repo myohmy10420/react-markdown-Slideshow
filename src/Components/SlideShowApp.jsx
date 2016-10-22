@@ -3,52 +3,49 @@ import { LivePreview } from './LivePreview';
 import { SlideShowButton } from './SlideShowButton';
 
 export class SlideShowApp extends Component {
-  constructor(props, context) {
-    super(props, context);
+	constructor(props, context) {
+		super(props, context);
 
-    this.state = {
-        text: ''
-    };
+		this.state = {
+			text: '',
+			canPlay: false
+		};
 
-    this._handleChange = this._handleChange.bind(this);
-  }
+		this._handleChange = this._handleChange.bind(this);
+	}
+	componentWillUnmount() {
+	}
+	componentDidMount() {
+	}
 
-  componentWillUnmount() {
+	_handleChange(e) {
+		this.setState({
+			text: e.target.value,
+			canPlay: e.target.value != ''
+		});
+	}
 
-  }
-
-  componentDidMount() {
-
-  }
-
-  _handleChange(e) {
-    this.setState({
-      text: e.target.value
-    });
-  }
-
-  render() {
-    return (
-        <div className="row">
-          <div className="col-md-6">
-            <SlideShowButton
-            text={this.state.text}
-            className="btn btn-primary"/>
-            <textarea
-            rows="25"
-            className="form-control"
-            onChange={this._handleChange}
-            />
-          </div>
-          <div className="col-md-6">
-            <LivePreview text={this.state.text}/>
-          </div>
-        </div>
-    );
-  }
-
+	render() {
+		return (
+			<div className="row">
+				<div className="col-md-6">
+					<SlideShowButton
+					text={this.state.text}
+					canPlay={this.state.canPlay}
+					className="btn btn-primary" />
+					<textarea
+					className="form-control"
+					rows="25"
+					onChange={this._handleChange}
+					/>
+				</div>
+				<div className="col-md-6">
+					<LivePreview text={this.state.text} />
+				</div>
+			</div>
+		);
+	}
 }
 
-SlideShowApp.defaultProps = {
-
+SlideShowApp.defaultprops = {
 }
